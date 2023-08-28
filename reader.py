@@ -8,7 +8,7 @@ def create_db():
     #1. Create table query
     logging.info ("Creating table query...")
     Table_Query = '''CREATE TABLE if not Exists swift_albums
-    (entity_index TEXT, entity_id TEXT, album_name TEXT NOT NULL)'''
+    (entity_index int, entity_id int, album_name varchar(255) NOT NULL)'''
 
     # 2. Create database
     logging.info ("Connecting to DB...")
@@ -54,6 +54,7 @@ def list_db():
     cursor = connection.execute("SELECT * from swift_albums")
     for row in cursor:
         print (row[0], row[1], row[2])
+
 
 create_db()
 list_db()
